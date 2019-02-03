@@ -1,0 +1,36 @@
+body {
+  margin: 0px;
+  background-color: rgb(242, 242, 242);
+  color: black;
+  font-size: 1.1em;
+}
+
+.header_section {
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+}
+
+/* 중복 값.. */
+.header_section_list, a {
+  font-size: 0.9em;
+  font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+  margin: 0 auto;
+  padding: 0.8em;
+  text-decoration: none;
+  color: white;
+}
+
+.header_section_items {
+  background-color: white;
+  display: flex;
+}
+
+.header_section_item {
+  margin: 0 auto;
+}
+
+.header_section_item img {
+  padding: 10px 0 10px 0;
+  width: 40px;
+  height: 40px;
+}

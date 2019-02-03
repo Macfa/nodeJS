@@ -1,0 +1,29 @@
+.main {
+  margin-top: 2.4em;
+  font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+.main_section_items {
+}
+
+.main_section_item {
+  width: 80%;
+  padding: 1em;
+  margin: 0 auto;
+  background-color: white;
+  margin-bottom: 0.7em;
+}
+
+.subDate {
+	font-size: 0.67em;
+	margin-left: 0.2em;
+}
+
+.footer {
+  width: 1000%;
+  padding: 1em;
+  margin: 0 auto;
+  margin-top: 4em;
+  background-color: #f2f2f2;
+  margin-bottom: 0.7em;
+}
