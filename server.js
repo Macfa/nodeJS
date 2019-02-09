@@ -6,9 +6,20 @@ const url = require('url');
 
 function start(route, handle) {
 	function onRequest(req,res) {
-    var pathname = url.parse(req.url).pathname;
+	    var pathname = url.parse(req.url).pathname;
+	    var postData = "";
 		console.log("onRequest() " + pathname + " received");
-		route(handle, pathname, res);
+
+		req.setEncoding("utf8");
+
+		req.addListener("gettingData", function(postDataChunk) {
+			postData += postDataChunk;
+			console.log("Received POST Data Chunk" + postDataChunk);
+		});
+
+		req.addListener("gottenData", function() {
+			route(handle, pathname, res, postData);
+		});
 	}
 
 	http.createServer(onRequest).listen(`${port}`);
