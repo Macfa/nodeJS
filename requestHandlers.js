@@ -2,7 +2,6 @@ var fs = require('fs');
 var querystring = require('querystring');
 var formidable = require('formidable');
 
-
 function start(res) {
 	console.log("Request handler 'start' was called.");
 	var body = fs.readFileSync('./html/index.html', 'utf8');
