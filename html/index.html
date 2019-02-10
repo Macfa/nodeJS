@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 	</head>
 	<body>
 		<div class="main">
@@ -12,9 +12,9 @@
 					</p>
 				</div>
 				<div class="main_section_item">
-					<form action="/upload" method="post">
-					<textarea name="text" rows="20" cols="60"></textarea>
-					<input type="submit" value="Submit text" />
+					<form action="/upload" enctype="multipart/form-data" method="post">
+						<input type="file" name="upload">
+						<input type="submit" value="ok" />
 					</form>
 				</div>
 			</div>
