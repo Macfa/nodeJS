@@ -16,6 +16,6 @@ handle['/upload'] = requestHandlers.upload;
 
 
 
-server.start(router.route, handle);
+server.start();
 
 

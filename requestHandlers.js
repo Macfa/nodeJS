@@ -1,12 +1,15 @@
 var exec = require("child_process").exec;
 var fs = require('fs');
 
+let inc = require('./comm-inc');
+
 
 function start(res) {
-  console.log("Request handler 'start' was called.");
-  var body = fs.readFileSync('./html/index.html', 'utf8');
+	console.log("Request handler 'start' was called.");
+	var body = fs.readFileSync('./html/index.html', 'utf8');
 	res.writeHead(200, {"Content-Type": "text/html"});
 	res.write(body);
+//	inc.css(path,res);
 	console.log(body);
 	res.end();
 }
