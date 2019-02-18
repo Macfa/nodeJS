@@ -17,9 +17,10 @@ handle['/upload'] = requestHandlers.upload;
 
 function start() {
 	function onRequest(req,res) {
-    var pathname = url.parse(req.url).pathname;
+	    var pathname = url.parse(req.url).pathname;
+	    var postData = "";
 		console.log("onRequest() " + pathname + " received");
-		route(handle, pathname, res);
+		route(handle, pathname, res, req);
 	}
 
 	http.createServer(onRequest).listen(`${port}`);
