@@ -2,15 +2,14 @@ var fs = require('fs');
 var querystring = require('querystring');
 var formidable = require('formidable');
 
-let inc = require('./comm-inc');
 
-function start(res) {
+function start(res, path) {
 	console.log("Request handler 'start' was called.");
 	var body = fs.readFileSync('./html/index.html', 'utf8');
 	res.writeHead(200, {"Content-Type": "text/html"});
 	res.write(body);
-//	inc.css(path,res);
 	console.log(body);
+	console.log("res : " + res);
 	res.end();
 }
 
