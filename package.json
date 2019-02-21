@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Macfa/nodeJS#readme",
   "dependencies": {
+    "formidable": "^1.2.1",
     "import-css": "^3.0.0"
   }
 }
