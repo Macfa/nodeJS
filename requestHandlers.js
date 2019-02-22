@@ -21,7 +21,7 @@ function upload(res, req) {
   form.parse(req , function(error, fields, files) {
 	console.log(files);
     console.log("parsing done");
-    fs.renameSync(files.upload.path, "/tmp/test.png");
+    fs.renameSync(files.upload.path, "upload");
     res.writeHead(200, {"Content-Type": "text/html"});
     res.write("received image:<br/>");
     res.write("<img src='/show' />");
@@ -32,7 +32,7 @@ function upload(res, req) {
 
 function show(res) {
   console.log("Request handler 'show' was called.");
-  fs.readFile('/alphatest.png', "binary", function(error, file) {
+  fs.readFile('upload', "binary", function(error, file) {
     if(error) {
       res.writeHead(500, {"Content-Type": "text/plain"});
       res.write("ERROR : " + error + "\n");

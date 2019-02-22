@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-function css(path, res) {
+function css(res) {
     var css = fs.readFileSync("./html/css/index.css");
 	console.log("use css module in comm-inc file");
 	if(css) {
