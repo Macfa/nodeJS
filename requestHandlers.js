@@ -1,9 +1,10 @@
 var fs = require('fs');
 var querystring = require('querystring');
 var formidable = require('formidable');
+var asset = require('./asset');
 
 
-function start(res) {
+function start(res, pathname) {
 	console.log("Request handler 'start' was called.");
 	var body = fs.readFileSync('./html/index.html', 'utf8');
 	res.writeHead(200, {"Content-Type": "text/html"});
@@ -13,7 +14,7 @@ function start(res) {
 	res.end();
 }
 
-function upload(res, req) {
+function upload(res, req, pathname) {
   console.log("Request handler 'upload' was called.");
 
   console.dir(req.headers);
@@ -30,7 +31,7 @@ function upload(res, req) {
   console.log("starting parse...");
 }
 
-function show(res) {
+function show(res, pathname) {
   console.log("Request handler 'show' was called.");
   fs.readFile('upload', "binary", function(error, file) {
     if(error) {

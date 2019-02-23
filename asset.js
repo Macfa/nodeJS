@@ -1,13 +1,14 @@
-var fs = require('fs');
+const fs = require('fs');
 
-function css(res) {
-    var css = fs.readFileSync("./html/css/index.css");
-	console.log("use css module in comm-inc file");
-	if(css) {
-		res.writeHead(200, {"Content-Type":"text/css"});
-		res.write(css);
-	}
-	console.log("css : " + css );
+function render(pathname, res, ext) {
+
+  if (ext == '.css') {
+    res.writeHead(200, {"Content-Type":"text/css"});
+  } else if (ext == '.js') {
+    res.writeHead(200, {"Content-Type":"text/javascript"});
+  }
+  res.write(fs.readFileSync(__dirname + pathname, 'utf8'));
+  res.end();
 }
 
-exports.css = css;
+exports.render = render;

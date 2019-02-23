@@ -19,6 +19,7 @@ handle['/show'] = requestHandlers.show;
 function start() {
 	function onRequest(req,res) {
 	    var pathname = url.parse(req.url).pathname;
+		console.log("PATHNAME in server.js : "  + pathname);
 	    var postData = "";
 		console.log("onRequest() " + pathname + " received");
 		route(handle, pathname, res, req);
