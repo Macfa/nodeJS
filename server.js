@@ -4,22 +4,25 @@ const port = 3000;
 const fs = require('fs');
 const url = require('url');
 
-// function checkListOfSites(req,res) {
-// 	if (res.url == '/') {
-// 		fs.readFile('./html/index.html', 'utf8', function() {
-// 			if (err) console.error(err);
-// 		});
-// 	}
-// }
+let router = require('./router');
+let requestHandlers = require('./requestHandlers');
+var handle = {};
+var route = router.route;
 
-function start(route, handle) {
+// connect a function of associate Pathname
+handle['/'] = requestHandlers.start;
+handle['/start'] = requestHandlers.start;
+handle['/upload'] = requestHandlers.upload;
+handle['/show'] = requestHandlers.show;
+
+
+function start() {
 	function onRequest(req,res) {
-    var pathname = url.parse(req.url).pathname;
-		console.log("onRequest() " + pathname + " received.");
-		route(handle, pathname,res);
-		res.writeHead(200, {"Content-Type": "text/plain"});
-		res.write("Hello World");
-		res.end();
+	    var pathname = url.parse(req.url).pathname;
+		console.log("PATHNAME in server.js : "  + pathname);
+	    var postData = "";
+		console.log("onRequest() " + pathname + " received");
+		route(handle, pathname, res, req);
 	}
 
 	http.createServer(onRequest).listen(`${port}`);
@@ -27,9 +30,4 @@ function start(route, handle) {
 	
 }
 
-function upload() {
-	console.log("Request handler 'upload' was called.");
-}
-
 exports.start = start;
-exports.upload = upload;

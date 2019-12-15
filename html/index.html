@@ -1,6 +1,7 @@
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<link type='text/css' href='css/index.css' rel='stylesheet' />
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 	</head>
 	<body>
 		<div class="main">
@@ -12,6 +13,10 @@
 					</p>
 				</div>
 				<div class="main_section_item">
+					<form action="/upload" enctype="multipart/form-data" method="post">
+						<input type="file" name="upload" multiple="multiple">
+						<input type="submit" value="ok" />
+					</form>
 				</div>
 			</div>
 		</div>
